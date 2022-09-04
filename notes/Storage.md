@@ -1,8 +1,8 @@
-# Persistant Storage
+# Persistant Storage 💾
 
 <br/>
 
-## Why do we need storage ?
+## Why do we need storage ❔
 
 By nature pod are ephemerals and can be replaced at any time. 
 
@@ -12,21 +12,21 @@ Kubernetes doesn't provide storage out the box for pods, so we need to configure
 
 <br/>
 
-## Storage requirements
+## Storage requirements ✔️
 
-1. We need storage that doesn't depends on the pod lifecycle
-2. We need storage that must be available on all nodes because a pod can be scheduled on any node of the cluster
-3. We need storage that survive cluster crashes
+1. We need storage that doesn't depends on the pod lifecycle ♻️
+2. We need storage that must be available on all nodes because a pod can be scheduled on any node of the cluster 🔃
+3. We need storage that survive cluster crashes 💥
 
 <br/>
 
-## 1 - Persistant volume (PV)
+## 1️⃣  Persistant volume (PV)
 
 PV is a cluster resource created via a YAML file
 - kind : **PersistentVolume**
 - spec: Define the type and volume specs
 
-It need actual physical storage
+It need actual physical storage 📂
 - Local disk
 - NFS server
 - cloud storage
@@ -36,7 +36,7 @@ Persistent volumes **are not namespaced** and are available accross the cluster
 
 <br/>
 
-### Where does this storage come from ? 
+### Where does this storage come from❔
 
 We have to decide what kind of storage we need, then **Create and manage them by ourself**
 
@@ -59,7 +59,7 @@ Local volumes are not valid regarding points #2 and #3 of Storage requirements a
 - They are tied to one specific node
 - They do not survive a cluster crash
 
-**For database persistence, always use remote storage**
+**For database persistence, always use remote storage** ❗
 
 <br/>
 
@@ -68,11 +68,11 @@ Local volumes are not valid regarding points #2 and #3 of Storage requirements a
 PV are resources that **needs to be there BEFORE** the pod that depends on it is created
 
 We define two user roles in kubernetes
-- K8S administrator : 
+- K8S administrator 👮
     - setup the cluster and maintain it
     - make sur the cluster have enough ressources
     - these are usually system administrator or devops engineer in a company
-- K8S users :
+- K8S users 👼
     - deploys applications inside the cluster
 
 **Storage is provisioned by administrator**
@@ -81,7 +81,7 @@ We define two user roles in kubernetes
 
 <br/>
 
-## 2 - Persistant Volume Claim (PVC)
+## 2️⃣  Persistant Volume Claim (PVC)
 
 In order to have storage for applications, users have to claim the persistent volume
 
@@ -95,7 +95,7 @@ Persistent Volumes Claims **are namespaced**
 
 <br/>
 
-## 3 - Storage classes
+## 3️⃣  Storage classes
 
 In a pod we can have different volumes types
 - Secret (Password, token, certificates... sensible stuff)
@@ -108,9 +108,9 @@ Storages process
 - 3: Users claim PV using PVC
 
 Basically, user ask admin to create PV when they need it, and admin have to manually create PV.
-This can be painful, time-consumming and messy very quickly
+This can be painful, time-consumming and messy very quickly 💤
 
-To adress this issue, we have the 3rd k8s component: **Storage Class**
+To adress this issue, we have the 3rd k8s component: **Storage Class** 🚀
 
 - SC provisions PV **dynamically** when PVC claims it
 - SC are also create by YAML manifests
