@@ -1,4 +1,4 @@
-# Persistant Storage 💾
+# Persistent Storage 💾
 
 <br/>
 
@@ -20,7 +20,7 @@ Kubernetes doesn't provide storage out the box for pods, so we need to configure
 
 <br/>
 
-## 1️⃣  Persistant volume (PV)
+## 1️⃣  Persistent volume (PV)
 
 PV is a cluster resource created via a YAML file
 - kind : **PersistentVolume**
@@ -81,7 +81,7 @@ We define two user roles in kubernetes
 
 <br/>
 
-## 2️⃣  Persistant Volume Claim (PVC)
+## 2️⃣  Persistent Volume Claim (PVC)
 
 In order to have storage for applications, users have to claim the persistent volume
 
