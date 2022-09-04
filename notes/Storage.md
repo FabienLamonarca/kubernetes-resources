@@ -85,11 +85,11 @@ We define two user roles in kubernetes
 
 In order to have storage for applications, users have to claim the persistent volume
 
-- PVC are also created by YAML configuration manifest
+PVC are also created by YAML configuration manifest
 
-- 1 : Pod requete a volume through the PV claim
-- 2 : Claim tries to find a volume in cluster
-- 3 : Volume has the actual storage backend
+1. Pod request a volume through the PV claim
+2. Claim tries to find a volume in cluster
+3. Volume has the actual storage backend
 
 Persistent Volumes Claims **are namespaced**
 
@@ -98,14 +98,14 @@ Persistent Volumes Claims **are namespaced**
 ## 3️⃣  Storage classes
 
 In a pod we can have different volumes types
-- Secret (Password, token, certificates... sensible stuff)
-- ConfigMap (application configuration files, KV pairs, etc.)
-- PVC for data store (awsElasticBlockStore, etc.)
+- Secret 🔒 (Password, token, certificates... sensible stuff)
+- ConfigMap 📄 (application configuration files, KV pairs, etc.)
+- PVC for data store 💾 (awsElasticBlockStore, etc.)
 
 Storages process
-- 1: Admin configure storage backend
-- 2: Admin create persistent storage in kubernetes
-- 3: Users claim PV using PVC
+1. Admin configure storage backend
+2. Admin create persistent storage in kubernetes
+3. Users claim PV using PVC
 
 Basically, user ask admin to create PV when they need it, and admin have to manually create PV.
 This can be painful, time-consumming and messy very quickly 💤
