@@ -19,6 +19,21 @@ stringData:
 
 ---
 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-redis-pvc
+spec:
+  storageClassName: ""
+  accessModes: 
+    - ReadWriteOnce
+  volumeName: my-redis-001
+  resources:
+      requests:
+        storage: 16M
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,15 +63,17 @@ spec:
             - name: redis-config
               mountPath: "/etc/config"
               readOnly: true
-            - name: redis-persistence
-              mountPath: "/data/CUSTOM-AOF"
+            - name: redis-pvc
+              mountPath: "/data"
+              readOnly: false
           command: ["redis-server", "/etc/config/redis.conf"]
       volumes:
         - name: redis-config
           secret:
             secretName: my-redis-config
-        - name: redis-persistence
-          emptyDir: {}
+        - name: redis-pvc
+          persistentVolumeClaim:
+            claimName: my-redis-pvc
 
 ---
 
