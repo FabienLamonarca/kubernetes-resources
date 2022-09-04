@@ -1,5 +1,7 @@
 # Persistant Storage
 
+<br/>
+
 ## Why do we need storage ?
 
 By nature pod are ephemerals and can be replaced at any time. 
@@ -8,12 +10,15 @@ When container write data on his filesystem, this data is lost when recreating a
 
 Kubernetes doesn't provide storage out the box for pods, so we need to configure it by ourselves.
 
+<br/>
+
 ## Storage requirements
 
 1. We need storage that doesn't depends on the pod lifecycle
 2. We need storage that must be available on all nodes because a pod can be scheduled on any node of the cluster
 3. We need storage that survive cluster crashes
 
+<br/>
 
 ## 1 - Persistant volume (PV)
 
@@ -29,6 +34,7 @@ It need actual physical storage
 
 Persistent volumes **are not namespaced** and are available accross the cluster
 
+<br/>
 
 ### Where does this storage come from ? 
 
@@ -43,6 +49,7 @@ Storage in kubernetes is an external thing of the cluster, no matter if this is 
 
 We can use different type of storage at the same time
 
+<br/>
 
 ### Local vs Remote volumes types
 
@@ -54,6 +61,7 @@ Local volumes are not valid regarding points #2 and #3 of Storage requirements a
 
 **For database persistence, always use remote storage**
 
+<br/>
 
 ### Who creates the PV and when ?
 
@@ -71,6 +79,7 @@ We define two user roles in kubernetes
 - create the storage itself
 - create it as PV in kubernetes
 
+<br/>
 
 ## 2 - Persistant Volume Claim (PVC)
 
@@ -84,6 +93,7 @@ In order to have storage for applications, users have to claim the persistent vo
 
 Persistent Volumes Claims **are namespaced**
 
+<br/>
 
 ## 3 - Storage classes
 
