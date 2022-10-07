@@ -1,0 +1,9 @@
+namespace: mysql-wp
+secretGenerator:
+- name: mysql-pass
+  literals:
+  - password=MYSQL-FABIEN-PWD
+resources:
+  - namespace.yaml
+  - mysql-deployment.yaml
+  - wordpress-deployment.yaml
