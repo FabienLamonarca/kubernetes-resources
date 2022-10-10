@@ -1,0 +1,12 @@
+namespace: my-cassandra-app
+resources:
+- namespace.yaml
+- cassandra-service.yaml
+- cassandra-statefulset.yaml
+
+vars:
+- name: NAMESPACE
+  objref:
+    kind: Namespace
+    name: my-cassandra-app
+    apiVersion: v1
