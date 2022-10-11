@@ -1,0 +1,6 @@
+kowl:
+  # See reference config: https://github.com/cloudhut/kowl/blob/master/docs/config/kowl.yaml)
+  config:
+    kafka:
+      brokers:
+        - kafka-headless.kafkanalytics.svc.cluster.local:9092

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kcat
+spec:
+  containers:
+  - name: kcat
+    image: edenhill/kcat:1.7.1
+    command:
+      - sh
+      - -c
+      - "exec tail -f /dev/null"
+    #env:
+    #  - name: KCAT_CONFIG
+    #    value: KCAT_CONFIG_PATH
+    # A mettre dans une configMap et a monter dans KCAT_CONFIG_PATH : metadata.broker.list=$(KAFKA_BROKER_SVC).default.svc.cluster.local

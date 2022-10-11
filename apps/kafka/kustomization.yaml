@@ -1,0 +1,25 @@
+namespace: kafkanalytics
+
+resources:
+- manifest/namespace.yaml
+- manifest/kafka-tools.yaml
+- manifest/ksqldb.yaml
+
+helmChartInflationGenerator:
+- chartName: kafka
+  chartRepoUrl: https://charts.bitnami.com/bitnami
+  releaseName: kafka
+  releaseNamespace: kafkanalytics
+
+- chartName: kowl
+  chartRepoUrl: https://raw.githubusercontent.com/cloudhut/charts/master/archives
+  releaseName: kowl
+  releaseNamespace: kafkanalytics
+  values: ./values/kowl.yaml
+
+# vars:
+# - name: KAFKA_BROKER_SVC
+#   objref:
+#     kind: Service
+#     name: my-kafka
+#     apiVersion: v1
