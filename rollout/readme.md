@@ -2,7 +2,7 @@
 
 ## Basic rollout strategy
 
-### Recreating deployment
+### <span style="color:blue">Recreating deployment</span>
 
 Recreating deployment **terminates all the pods** and **replaces them** with the new version
 
@@ -17,7 +17,7 @@ spec:
         type: Recreate
 ```
 
-### Rolling deployment
+### <span style="color:blue">Rolling deployment</span>
 
 **Rolling deployments are the default K8S** offering designed to **reduce downtime** to the cluster
 
@@ -42,7 +42,7 @@ spec:
 
 ## Advanced rollout strategy
 
-### Blue/Green deployments
+### <span style="color:blue">Blue/Green deployments</span>
 
 A Blue/Green deployment involves deploying the **new application version (green) alongside the old one (blue)** <br/>
 
@@ -97,7 +97,7 @@ spec:
                 version: "v2.0.0"
 ```
 
-### Canary deployment
+### <span style="color:blue">Canary deployment</span>
 
 A Canary deployment can be **used to let a subset of the users test a new version** of the application or **when you are not fully confident** about the new version’s functionality <br/>
 This involves deploying a new version of the application **alongside the old one**, with the old version of the application serving **most users** and the newer version serving a **small pool of test users**
@@ -117,7 +117,7 @@ spec:
     replicas: 5
 ```
 
-### A/B Deployments
+### <span style="color:blue">A/B Deployments</span>
 
 Similar to a Canary deployment, you can **target a given subsection of users** based on **target parameters**, usually the HTTP headers, GET params or a cookie <br/>
 This technique is widely used to **test the conversion of a given feature**, and then the **version that converts the most is rolled out**
